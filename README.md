@@ -1,7 +1,10 @@
 # BookMadi
- An iOS Application to book you flights.
+ An iOS Application to book flights. It uses Skyscanner API to fetch flight prices.
 
 # Screenshots
+
+![](BookMadi.gif)</br>
+
 1. Booking form</br>
 <p align="left" >
   <img width="160" height="320" src="https://github.com/siddhantmishra1305/BookMadi/blob/main/BookingForm.png" title="Booking" float=left>
