@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   uuid = "59FE6446-C36F-4E19-8A77-D69121F405C2"
+   type = "0"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.ExceptionBreakpoint">
+         <BreakpointContent
+            uuid = "C302DA43-CD36-428F-83FA-29BACD1DEB19"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            breakpointStackSelectionBehavior = "1"
+            scope = "1"
+            stopOnStyle = "0">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "8AB2D221-3522-4111-951A-03C8C6B05781"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "BookMadi/View/Cells/FlightDetailCell/FlightDetail.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "40"
+            endingLineNumber = "40"
+            landmarkName = "quote"
+            landmarkType = "24">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "9029A8E0-9B6F-4CC0-AF10-A960366C30B7"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "BookMadi/View/Cells/FlightDetailCell/FlightDetail.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "41"
+            endingLineNumber = "41"
+            landmarkName = "quote"
+            landmarkType = "24">
+            <Locations>
+               <Location
+                  uuid = "9029A8E0-9B6F-4CC0-AF10-A960366C30B7 - 11fb9f9578e1fb2a"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "BookMadi.FlightDetail.quote.didset : Swift.Optional&lt;BookMadi.Quotes&gt;"
+                  moduleName = "BookMadi"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/siddhantmishra/Documents/iOSProjects/BookMadi/BookMadi/View/Cells/FlightDetailCell/FlightDetail.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "41"
+                  endingLineNumber = "41"
+                  offsetFromSymbolStart = "704">
+               </Location>
+               <Location
+                  uuid = "9029A8E0-9B6F-4CC0-AF10-A960366C30B7 - 1b7521acebd7f060"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (BookMadi.Carriers) -&gt; Swift.Bool in BookMadi.FlightDetail.quote.didset : Swift.Optional&lt;BookMadi.Quotes&gt;"
+                  moduleName = "BookMadi"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/siddhantmishra/Documents/iOSProjects/BookMadi/BookMadi/View/Cells/FlightDetailCell/FlightDetail.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "41"
+                  endingLineNumber = "41"
+                  offsetFromSymbolStart = "172">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "FC7807D6-D26D-45B3-A1A2-74A240D003B8"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "BookMadi/Controller/BookingViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "282"
+            endingLineNumber = "282"
+            landmarkName = "textFieldDidBeginEditing(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>

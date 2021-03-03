@@ -14,7 +14,7 @@ For support, please feel free to contact me at https://www.linkedin.com/in/syeda
 import Foundation
 import ObjectMapper
 
-struct Json4Swift_Base : Mappable {
+struct FlightQuote : Mappable {
 	var quotes : [Quotes]?
 	var carriers : [Carriers]?
 	var places : [Places]?

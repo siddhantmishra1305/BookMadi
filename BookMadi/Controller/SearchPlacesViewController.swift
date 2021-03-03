@@ -7,83 +7,86 @@
 
 import UIKit
 
-class SearchPlacesTableViewController: UITableViewController {
+protocol SelectedOption:class {
+    func selectedOption(place:searchPlaces?,index:Int,senderView:String)
+}
 
+
+class SearchPlacesViewController: UITableViewController {
+    
+    let spinner = UIActivityIndicatorView(style: .medium)
+    
+    var searchResult : [searchPlaces]?{
+        didSet{
+            self.tableView.reloadData()
+        }
+    }
+    let bookingViewModel = BookingViewModel()
+    var searchDelegate : SelectedOption?
+    var senderView = String()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        configurePush()
     }
-
+    
+    func configurePush(){
+        let search = UISearchController(searchResultsController: nil)
+        search.searchResultsUpdater = self
+        search.obscuresBackgroundDuringPresentation = false
+        search.searchBar.placeholder = "Search Places"
+        navigationItem.searchController = search
+    }
+    
     // MARK: - Table view data source
-
+    
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
+        
+        return 1
     }
-
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 0
+        
+        return searchResult?.count ?? 0
     }
-
-    /*
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
-        // Configure the cell...
-
+        let cell = tableView.dequeueReusableCell(withIdentifier: "SearchPlaceCell", for: indexPath)
+        cell.textLabel?.text = searchResult?[indexPath.row].placeName
+        cell.detailTextLabel?.text = searchResult?[indexPath.row].placeId
         return cell
     }
-    */
-
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        self.navigationController?.popViewController(animated: true)
+        searchDelegate?.selectedOption(place: searchResult?[indexPath.row], index: indexPath.row, senderView: senderView)
     }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
+    
+    deinit {
+        print("SearchPlacesViewController Deinit called")
     }
-    */
+}
 
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
+extension SearchPlacesViewController:UISearchResultsUpdating{
+    func updateSearchResults(for searchController: UISearchController) {
+        guard let text = searchController.searchBar.text else { return }
+        if text.count % 2 == 0 && text.count > 0{
+            tableView.showActivityIndicator()
+            bookingViewModel.searchPlace(place: text) { [weak self](places, error) in
+                if let err = error{
+                    print(err)
+//                    self?.searchResult?.removeAll()
+                }else{
+                    if let pla = places{
+                        self?.tableView.hideActivityIndicator()
+                        self?.searchResult = pla
+                    }
+                }
+            }
+        }else{
+            if text.count == 0{
+                self.searchResult?.removeAll()
+            }
+        }
     }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

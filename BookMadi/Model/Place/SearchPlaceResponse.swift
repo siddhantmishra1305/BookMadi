@@ -6,12 +6,10 @@
 //
 
 import Foundation
-
-import Foundation
 import ObjectMapper
 
 struct SearchPlaceResponse : Mappable {
-    var places : [Places]?
+    var places : [searchPlaces]?
 
     init?(map: Map) {
 
